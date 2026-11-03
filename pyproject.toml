@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smtp-api-proxy"
+version = "0.1.0"
+description = "A lightweight SMTP-to-API email proxy for restricted container environments"
+readme = "README.md"
+requires-python = ">=3.14"
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+# Core dependencies required to run inside the Docker container
+dependencies = [
+    "aiosmtpd>=1.4.6",
+    "httpx>=0.27.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "python-dotenv>=1.0.1",
+]
+
+# Optional development dependencies (excluded from production Docker build)
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.0",
+    "pytest-asyncio>=0.24.0",
+    "respx>=0.21.0",
+    "ruff>=0.3.0",
+]
+
+[project.scripts]
+smtp-api-proxy = "smtp_api_proxy.main:main"
+
+# Tool Configurations
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 88

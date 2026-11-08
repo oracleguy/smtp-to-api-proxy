@@ -9,7 +9,6 @@ jobs:
   test-and-lint:
     runs-on: ubuntu-latest
     
-    # Declare explicit variables for modern CI environments
     env:
       CI: "true"
       # Give our Pydantic settings fake string tokens so the validation engine passes 
@@ -19,10 +18,10 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python 3.14
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.14"
           cache: "pip"

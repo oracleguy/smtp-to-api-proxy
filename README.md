@@ -6,7 +6,7 @@ This is particular useful for older applications that only support SMTP and do n
 
 # Installation
 
-The best way to run this application is as a container. You can pull the image from `TBD`.
+The best way to run this application is as a container. You can pull the image from `ghcr.io/oracleguy/smtp-to-api-proxy:latest`.
 
 The application can be configured with environment variables.
 
